@@ -4,14 +4,21 @@ import Button from './components/Button/Button'
 import Footer from './components/Footer/Footer'
 import Form from './components/Form/Form'
 import './App.css'
+import Add from './components/Add/Add'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const [showForm, setShowForm] = useState(true);
+
+  const toggleForm = () => {
+    setShowForm(!showForm);
+}
 
   return (
     <>
       <Header />
-      <Form />
+      { showForm && <Form /> }      
+      <Add toggleForm={toggleForm}/>
     </>
   )
 }
